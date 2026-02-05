@@ -6,6 +6,8 @@ Method description: update soon
 
 The method is based on [ConvexAdam](https://github.com/multimodallearning/convexAdam) and [MCBO](https://github.com/wjiazheng/MCBO)
 
+![image](https://github.com/wjiazheng/MCPO/blob/main/MCPO.png)
+
 ![image](https://github.com/wjiazheng/MCPO/blob/main/remind25.png)
 
 The code will update soon!
