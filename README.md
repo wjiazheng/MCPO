@@ -10,4 +10,6 @@ The method is based on [ConvexAdam](https://github.com/multimodallearning/convex
 
 ![image](https://github.com/wjiazheng/MCPO/blob/main/remind25.png)
 
-The code will update soon!
+Before running the code, please modify ‘datasets_path’ and ‘result_path’ in the args.
+
+When using different modalities and datasets, remember to adjust ‘fixed_mod’ and ‘moving_mod’.
