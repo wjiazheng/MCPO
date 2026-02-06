@@ -913,6 +913,7 @@ if __name__=="__main__":
 
     args = parser.parse_args()
 
+    # modality selection
     fixed_mod = '0000'
     moving_mod = '0001' # 0002
 
@@ -985,3 +986,4 @@ if __name__=="__main__":
 
 
         torch.cuda.empty_cache()
+
