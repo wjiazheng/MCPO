@@ -6,10 +6,11 @@ Method description: update soon
 
 The method is based on [ConvexAdam](https://github.com/multimodallearning/convexAdam) and [MCBO](https://github.com/wjiazheng/MCBO)
 
+Before running the code 'MCPO_p4_6543.py', please modify ‘datasets_path’ and ‘result_path’ in the args.
+
+When using different modalities and datasets, remember to adjust ‘fixed_mod’ and ‘moving_mod’.
+
 ![image](https://github.com/wjiazheng/MCPO/blob/main/MCPO.png)
 
 ![image](https://github.com/wjiazheng/MCPO/blob/main/remind25.png)
 
-Before running the code 'MCPO_p4_6543.py', please modify ‘datasets_path’ and ‘result_path’ in the args.
-
-When using different modalities and datasets, remember to adjust ‘fixed_mod’ and ‘moving_mod’.
