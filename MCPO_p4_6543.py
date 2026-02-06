@@ -17,7 +17,7 @@ from scipy.ndimage import distance_transform_edt as edt
 
 warnings.filterwarnings("ignore")
 
-class SpatialTransformer(nn.Module):#输入的变形场（flow）来对源图像（src）进行空间变换
+class SpatialTransformer(nn.Module):
 
     def __init__(self, size, mode='bilinear'):
         super().__init__()
@@ -255,10 +255,6 @@ def least_trimmed_rigid(fixed_pts, moving_pts, iter=5):
     return x.t()
 
 def get_mask(ref_data):
-    """
-    通过图像数据生成二值 mask，假设所有值大于 0 的区域为前景，生成二值化的 mask。
-    """
-    # 将大于 0 的部分设为 1，其它部分设为 0，得到二值化图像
     img_data = (ref_data > 0).float()
     return img_data
 
@@ -631,20 +627,12 @@ def convex_adam_nofu(
 
     return flow, disp_out
 
-#然后那个mi的loss用这个
 # class GmiLoss_soft(_Loss):
 class GmiLoss_soft(nn.Module):
     def __init__(self):
         super().__init__()
     def forward(self, x, y, eps=1e-7):
-        """
-        计算归一化后的互信息损失
-        输入:
-            x: (dimensions, n_features)
-            y: (dimensions, n_features)
-        输出:
-            mi_loss: 标量（互信息）
-        """
+
         # 归一化为概率分布
         x_prob = F.softmax(x, dim=1)
         y_prob = F.softmax(y, dim=1)
@@ -661,11 +649,8 @@ class GmiLoss_soft(nn.Module):
         return cmif
 
 def get_cuboid_points(point1, point2):
-    """
-    根据立方体的两个对角线端点坐标，返回立方体内所有整数点的坐标
-    """
-    # 提取各维度坐标并排序
-    
+
+    # 提取各维度坐标并排序   
     x_coords = sorted([point1[0,0,0], point2[0,0,0]])
     y_coords = sorted([point1[0,0,1], point2[0,0,1]])
     z_coords = sorted([point1[0,0,2], point2[0,0,2]])
@@ -682,13 +667,6 @@ def get_cuboid_points(point1, point2):
     return torch.stack([xx.flatten(), yy.flatten(), zz.flatten()], axis=1).tolist()
 
 def block_filtering_and_sampling(image, block_size = 4):
-    """
-    基于 PyTorch 的图像分块与筛选
-    参数:
-        image_path (str): 图像路径
-    返回:
-        selected_coords (torch.Tensor): 选中块的坐标，形状为 (N, 2)
-    """
     # 调整尺寸为 4 的倍数
     D, H, W = image.shape
     new_D = D // block_size * block_size
@@ -1004,5 +982,6 @@ if __name__=="__main__":
         t1 = time.time()
         case_time = t1 - t0
         print('case time: ', case_time)
+
 
         torch.cuda.empty_cache()
