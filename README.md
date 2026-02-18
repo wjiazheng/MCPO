@@ -2,7 +2,7 @@ Unsupervised MRI-US Multimodal Image Registration with Multilevel Correlation Py
 
 which won the fist place for [ReMIND2Reg Learn2Reg MICCAI 2025](https://learn2reg.grand-challenge.org/)
 
-Method description: update soon
+Method description: [arxiv](https://arxiv.org/abs/2602.06288)
 
 The method is based on [ConvexAdam](https://github.com/multimodallearning/convexAdam) and [MCBO](https://github.com/wjiazheng/MCBO)
 
